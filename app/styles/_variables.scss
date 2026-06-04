@@ -1,0 +1,43 @@
+// COLORS
+$color-primary-dark: #372248;
+$color-primary: #414770;
+$color-white: #eeeff5;
+$color-white-true: #fff;
+$color-black: #372248;
+$color-blacker: #0b070e;
+$color-secondary: #5B85AA;
+$color-secondary-light: #a9bfd3;
+$color-tertiary: #F56E48;
+
+// MARGINS
+$grid-width: 112.5em;
+$desktop-width: 75em;
+$left-margin: 4rem;
+$h2-top-haiku: 9rem;
+$h2-top-latest: 17rem;
+$nav-top-margin: 4rem;
+$margin-scroll: 1.5rem;
+$gutter-sm: 2rem;
+
+// SECTION HEIGHTS
+$sec-height-xs: 30rem;
+$sec-height-sm: 50rem;
+$sec-height-med: 60vh;
+$sec-height-lg: 80vh;
+
+// PROJECT DIMENSIONS
+$proj-header-mobile: 28rem;
+$proj-header-tab: 25vw;
+$proj-featured-y: 50vh;
+
+// FONT SIZES
+$body-default: 1.25rem;
+$h3-default: 1.8rem;
+$default-font-size: 2rem;
+
+// Z-INDEX
+$zindex: (
+  header: 4000,
+  text-over: 2000,
+  screens: 1000
+);

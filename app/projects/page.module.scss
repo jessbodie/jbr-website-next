@@ -1,0 +1,477 @@
+@use "sass:map";
+@use "../styles/variables" as vars;
+@use "../styles/mixins" as mix;
+
+// ─── Hero (text only) ───────────────────────────────────────────────────────
+
+.sectionHeroTextOnly {
+  background-color: vars.$color-primary;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(vars.$color-primary, 0.8),
+    rgba(vars.$color-primary-dark, .95)
+  );
+  max-width: 100%;
+  z-index: map.get(vars.$zindex, text-over);
+  height: 14rem;
+  max-height: 20vmin;
+  min-height: 10rem;
+  @include mix.section-block;
+  @include mix.dropshadow;
+
+  @include mix.respond(tab-port) {
+    max-height: 25vmin;
+  }
+}
+
+.hero {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+
+.heroText {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  background-color: transparent;
+  text-shadow: 0 .5rem .5rem rgba(vars.$color-primary, .6);
+}
+
+.heroText1st {
+  vertical-align: bottom;
+  display: inline-block;
+  line-height: .8;
+}
+
+// ─── Climate (obligatory) section ───────────────────────────────────────────
+
+.sectionObligatory {
+  background-color: vars.$color-white-true;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  @include mix.section-block;
+}
+
+.obligatory {
+  display: block;
+  margin-left: vars.$left-margin;
+  margin-right: vars.$left-margin;
+
+  @include mix.respond(tab-land) {
+    @include mix.basic-flex;
+  }
+}
+
+.obligatoryListing {
+  display: flex;
+  align-items: flex-start;
+}
+
+.obligatoryListingBlurb {
+  margin-left: 2rem;
+}
+
+.obligatoryText {
+  @include mix.respond(tab-land) {
+    @include mix.flex-item-right;
+  }
+}
+
+.obligatoryTextWrapper {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      @include mix.respond(tab-land) {
+        margin-left: #{($i * vars.$left-margin) - vars.$left-margin};
+      }
+    }
+  }
+}
+
+.obligatoryTextLabel {
+  margin-left: 0;
+}
+
+.obligatoryTextDate {
+  color: vars.$color-primary;
+}
+
+.obligatoryImageThumb {
+  width: 200px;
+  margin: 1rem 0;
+}
+
+.obligatoryTextMulti {
+  color: vars.$color-primary-dark;
+  font-size: vars.$body-default;
+  line-height: 160%;
+  word-spacing: .35rem;
+  margin-bottom: 2.5rem;
+  padding-right: 10vw;
+  position: relative;
+  top: 0;
+  vertical-align: top;
+}
+
+// ─── Featured panel (tablet+) ───────────────────────────────────────────────
+
+.sectionFeatured {
+  display: none;
+
+  @include mix.respond(tab-port) {
+    display: block;
+    background-color: vars.$color-white-true;
+    color: vars.$color-black;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    @include mix.section-block;
+  }
+}
+
+.listFeatured {
+  position: relative;
+  margin: vars.$gutter-sm 0 0 0;
+}
+
+.listFeaturedContainer {
+  @include mix.respond(tab-port) {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    height: vars.$proj-featured-y;
+    max-height: 70vh;
+    max-width: 90rem;
+    margin: 0;
+  }
+}
+
+.listFeaturedPrev,
+.listFeaturedNext {
+  @include mix.respond(tab-port) {
+    flex: 0 0 auto;
+    color: rgba(vars.$color-secondary-light, .5);
+    font-size: 6rem;
+    line-height: .6;
+    font-weight: 500;
+    display: inline-block;
+    padding: 0 .5rem;
+    cursor: pointer;
+    transform: scaleX(.5);
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      color: vars.$color-white;
+      background-color: vars.$color-secondary-light;
+      border-radius: 1px;
+      transform: scaleX(.5) translateY(-5px);
+      transition: transform 300ms, background-color 300ms;
+      @include mix.dropshadow;
+    }
+
+    &:active {
+      background-color: vars.$color-primary;
+    }
+  }
+}
+
+.listFeaturedClose {
+  @include mix.respond(tab-port) {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      background-color: vars.$color-secondary-light;
+      border-radius: 1px;
+      transform: translateY(-5px);
+      transition: transform 300ms, background-color 300ms;
+      @include mix.dropshadow;
+
+      .listFeaturedCloseShape,
+      &::after {
+        background-color: vars.$color-white;
+      }
+    }
+  }
+}
+
+.listFeaturedCloseShape,
+.listFeaturedClose::after {
+  @include mix.respond(tab-port) {
+    position: absolute;
+    top: 1.4rem;
+    right: 0;
+    width: 3rem;
+    height: 3px;
+    background-color: rgba(vars.$color-secondary-light, .5);
+    display: inline-block;
+    transform: rotate(135deg);
+    transition: all .6s;
+  }
+}
+
+.listFeaturedClose::after {
+  @include mix.respond(tab-port) {
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+}
+
+.listFeaturedImage {
+  @include mix.respond(tab-port) {
+    flex: 3 0 auto;
+    margin-left: vars.$gutter-sm;
+    margin-right: vars.$gutter-sm;
+    max-height: vars.$proj-featured-y;
+    max-width: 40vw;
+
+    img {
+      max-height: vars.$proj-featured-y;
+      object-fit: cover;
+      object-position: top left;
+      max-width: 100%;
+    }
+  }
+
+  @include mix.respond(tab-land) {
+    flex: 3 0 auto;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  @include mix.respond(desktop) {
+    flex: 3 0 auto;
+  }
+}
+
+.listFeaturedText {
+  @include mix.respond(tab-port) {
+    flex: 1 1 auto;
+    margin-right: vars.$gutter-sm;
+    overflow-y: auto;
+    max-height: 100%;
+    align-self: center;
+
+    ul, li, p {
+      font-size: 1rem;
+      list-style: none;
+    }
+
+    li {
+      text-indent: -1rem;
+    }
+
+    @include mix.fancy-bullets;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @include mix.respond(desktop) {
+    flex: 0 1 auto;
+  }
+}
+
+// ─── Project card grid ──────────────────────────────────────────────────────
+
+.sectionProjects {
+  background-color: rgba(vars.$color-primary, .3);
+  color: vars.$color-black;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  max-width: 100%;
+  @include mix.section-block;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  @include mix.respond(tab-port) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.listContainer {
+  padding-top: 5rem;
+  padding-bottom: vars.$left-margin;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+
+  &:nth-child(even) {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(vars.$color-primary, .05),
+      rgba(vars.$color-primary, 0.3)
+    );
+  }
+
+  @include mix.respond(tab-port) {
+    width: 50%;
+    flex: 0 1 auto;
+    height: vars.$proj-header-tab;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:nth-child(1),
+    &:nth-child(4n + 1) {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(vars.$color-primary, .05),
+        rgba(vars.$color-primary, 0.3)
+      );
+    }
+
+    &:nth-child(4n),
+    &:nth-child(4n - 1) {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(vars.$color-tertiary, .15),
+        rgba(vars.$color-tertiary, 0.45)
+      );
+      text-align: right;
+    }
+  }
+}
+
+.listContainerImage {
+  max-width: 100%;
+  height: vars.$proj-header-mobile;
+  overflow: hidden;
+  margin-left: vars.$left-margin;
+  margin-right: vars.$left-margin;
+  margin-bottom: vars.$gutter-sm;
+  display: inline-block;
+  position: relative;
+
+  @include mix.respond(mobile) {
+    margin-left: vars.$gutter-sm;
+    margin-right: vars.$gutter-sm;
+  }
+
+  @include mix.respond(tab-port) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: vars.$proj-header-tab;
+    width: 50%;
+    overflow: hidden;
+  }
+
+  img {
+    cursor: pointer;
+    position: relative;
+    height: vars.$proj-header-mobile;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: 0% 0%;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      opacity: .7;
+      transform: scale(1.1);
+      transition: transform 300ms;
+      box-shadow: .2rem .5rem 1rem rgba(vars.$color-primary, .6);
+    }
+
+    @include mix.respond(tab-port) {
+      height: 35vw;
+      max-width: 300%;
+    }
+  }
+}
+
+.listContainerHeader {
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.listContainerHeaderRotate {
+  height: 4rem;
+  width: vars.$proj-header-mobile;
+  background-color: vars.$color-primary;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  display: inline-block;
+  position: relative;
+  top: vars.$proj-header-mobile;
+  z-index: map.get(vars.$zindex, text-over);
+  text-align: right;
+  @include mix.dropshadow-vertical;
+
+  h2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include mix.respond(tab-port) {
+    width: vars.$proj-header-tab;
+    top: vars.$proj-header-tab;
+  }
+}
+
+.listContainerText {
+  margin-left: vars.$left-margin;
+  margin-right: vars.$left-margin;
+  font-size: 1rem;
+  @include mix.fancy-bullets;
+
+  @include mix.respond(tab-port) {
+    display: none;
+  }
+}
+
+// Mobile expand
+.listContainerExpand {
+  overflow: hidden;
+  transition: all 300ms ease-out;
+}
+
+.listContainerExpandClosed {
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.listContainerExpandOpen {
+  height: auto;
+  transform: scaleY(1);
+}

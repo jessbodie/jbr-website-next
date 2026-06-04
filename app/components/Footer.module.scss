@@ -1,0 +1,93 @@
+@use "../styles/variables" as vars;
+@use "../styles/mixins" as mix;
+
+.footer {
+  height: 27rem;
+  color: vars.$color-white;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(vars.$color-primary-dark, .95),
+    rgba(vars.$color-primary-dark, 1)
+  );
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  @include mix.section-block;
+}
+
+.bgImage {
+  background-image: url('/vendor/img/plastic_bag_outline_cc.svg');
+  background-size: cover;
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: top right;
+  transform: rotate(90deg) scaleY(1) skewX(10deg) skewY(0);
+  padding-top: 4rem;
+  opacity: .1;
+  margin-top: 26rem;
+  margin-right: -6rem;
+}
+
+.links {
+  display: inline-block;
+  margin-top: 0;
+  padding: vars.$left-margin 0 0 vars.$left-margin;
+}
+
+.linksItem {
+  list-style: none;
+  margin-left: 0;
+  padding-top: 1rem;
+  font-weight: bolder;
+  transition: all 300ms;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-2px);
+    text-shadow: .25rem .25rem .5rem rgba(vars.$color-blacker, .8);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+    transition: all 300ms;
+
+    &:hover,
+    &:focus {
+      filter: drop-shadow(.25rem .25rem .5rem rgba(vars.$color-blacker, .8));
+    }
+
+    &:active {
+      filter: drop-shadow(.25rem .25rem .25rem rgba(vars.$color-blacker, .6));
+    }
+  }
+
+  a {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: vars.$color-white;
+    }
+  }
+}
+
+.linksItemText {
+  font-size: 3rem;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: vars.$color-white;
+  text-align: center;
+  padding-top: vars.$left-margin;
+  padding-bottom: 6rem;
+  opacity: .6;
+}

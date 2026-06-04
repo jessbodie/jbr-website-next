@@ -1,0 +1,190 @@
+@use "sass:map";
+@use "./styles/variables" as vars;
+@use "./styles/mixins" as mix;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: calc(6.5px + .66vw);
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+}
+
+main {
+  width: 100%;
+  display: block;
+  position: relative;
+  align-self: stretch;
+  justify-self: stretch;
+
+  a {
+    display: inline;
+    transition: transform 300ms, text-shadow 300ms;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: vars.$color-primary;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      text-shadow: 0px 1px 4px rgba(vars.$color-primary-dark, .3);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+ul, p {
+  font-size: vars.$body-default;
+  margin-top: .8rem;
+}
+
+li {
+  list-style: none;
+  margin-left: vars.$left-margin;
+  margin-top: .6rem;
+}
+
+::selection {
+  background-color: vars.$color-primary;
+  color: vars.$color-white;
+}
+
+.heading-primary {
+  display: inline-block;
+  font-size: 3rem;
+  line-height: 5.6rem;
+  font-weight: 800;
+  color: vars.$color-white;
+  vertical-align: bottom;
+
+  @include mix.respond(tab-port) {
+    font-size: 3.5rem;
+    line-height: 6.5rem;
+  }
+
+  @include mix.respond(tab-land) {
+    font-size: 4rem;
+    line-height: 7rem;
+  }
+}
+
+.heading-secondary {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: vars.$color-white;
+  background-color: vars.$color-primary;
+  padding: .5rem 1.5rem 1rem 1.5rem;
+  z-index: map.get(vars.$zindex, text-over);
+}
+
+.heading-tertiary {
+  display: inline-block;
+  position: relative;
+  font-size: vars.$h3-default;
+  font-weight: 800;
+  color: vars.$color-primary;
+  background-color: transparent;
+  padding: .5rem 0;
+  z-index: map.get(vars.$zindex, text-over);
+}
+
+button {
+  background-color: vars.$color-secondary;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: vars.$color-white;
+  padding: .5rem 1rem .75rem 1rem;
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+    @include mix.dropshadow;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+// Layout
+.row {
+  max-width: vars.$grid-width;
+  width: 100%;
+  display: block;
+  position: relative;
+  height: 100%;
+
+  @include mix.respond(big-desktop) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+// Utilities
+.u-margin-bottom-med { margin-bottom: 5rem; }
+
+.u-margin-top-med {
+  margin-top: 3rem;
+
+  @include mix.respond(tab-port) { margin-top: 4rem; }
+}
+
+.u-margin-top-sm { margin-top: 2rem; }
+
+.u-height-100 { height: 100%; }
+
+.u-hidden {
+  max-height: 0;
+  height: 0;
+  overflow-y: hidden;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.u-visible {
+  opacity: 1;
+  padding: vars.$left-margin;
+  transition: all 500ms;
+  height: auto;
+  max-height: 60rem;
+}
+
+.u-visibility {
+  visibility: hidden;
+  height: 0;
+}
+
+.u-nowrap { white-space: nowrap; }

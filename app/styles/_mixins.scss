@@ -1,0 +1,118 @@
+@use "sass:map";
+@use "variables";
+
+@mixin dropshadow {
+  & {
+    box-shadow: .2rem .5rem .5rem rgba(variables.$color-primary, .6);
+  }
+}
+
+@mixin dropshadow-vertical {
+  box-shadow: -.5rem .5rem .5rem rgba(variables.$color-primary, .6);
+}
+
+@mixin section-block {
+  & {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@mixin basic-flex {
+  margin-left: variables.$left-margin;
+  margin-right: variables.$left-margin;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+
+  @include respond(desktop) {
+    margin-right: calc(#{variables.$left-margin} + #{variables.$margin-scroll});
+    max-width: inherit;
+    max-height: inherit;
+    font-size: variables.$body-default;
+  }
+}
+
+@mixin flex-item-right {
+  flex: 4 1 auto;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: variables.$left-margin;
+}
+
+@mixin overlay($overlay-col) {
+  &::before {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    z-index: map.get(variables.$zindex, screens);
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($overlay-col, .05),
+      rgba($overlay-col, .33)
+    );
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin link-hover {
+  transform: translateY(-2px);
+  text-shadow: 0px 1px 4px rgba(variables.$color-primary-dark, .3);
+}
+
+@mixin fancy-bullets {
+  li::before {
+    content: '\25A0';
+    color: variables.$color-primary;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+}
+
+// MEDIA QUERY MANAGER
+// 0-600px:    Default / mobile
+// 600-900px:  tab-port
+// 900-1200px: tab-land
+// 1200-1800:  desktop
+// 1800+:      big-desktop
+// Using ems for media queries — more accessible
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 37.5em) { @content }; // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 37.5em) { @content }; // 600px+
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: 56.25em) { @content }; // 900px+
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 75em) { @content }; // 1200px+
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content }; // 1800px+
+  }
+}

@@ -1,0 +1,121 @@
+[
+    {
+        "id": -1,
+        "title": "Administrator, Financial Consolidation Systems (2020-present)",
+        "link": "https://www.interpublic.com",
+        "label": "JS, CSS",
+        "screenshot": "img/projects/proj_ipg-blue.jpg",
+        "alt": "InterPublic Group",
+        "description": "<ul>  <li>Developed  internal tools with GUIs to automate repetitive processes, save time, and minimize errors.  These tools ingest user inputs and CSV data to output software configuration strings, Data Copy files, user-friendly text, or algorithmically selected data sets.</li>  </ul>"
+    },
+    {
+        "id": 1,
+        "title": "Developer and Product Manager (2018)",
+        "link": "http://lucky.jessbodie.com",
+        "label": "JS, SASS",
+        "screenshot": "img/projects/proj_lucky_cat.png",
+        "alt": "Screenshot of Lucky Cat - Game",
+        "description": "<p>Designed and developed the <b><a href='http://lucky.jessbodie.com' target='_blank'>Lucky Cat - Game</a></b> web app with JavaScript, SASS, and HTML. Click Lucky Cat to grow your pot of gold.</p>"
+        },
+
+    {
+        "id": 0,
+        "title": "Developer and Product Manager (2018)",
+        "link": "http://basketball.jessbodie.com",
+        "label": "JS, SASS",
+        "screenshot": "img/projects/proj_basketball_scorekeeping.png",
+        "alt": "Screenshot of Basketball Scorekeeping",
+        "description": "<p>Designed and developed the <b><a href='http://basketball.jessbodie.com' target='_blank'>Basketball Scorekeeping</a></b> web app with JavaScript and HTML/SASS. This app is intended to replace a tedious paper-and-pencil process used to score youth basketball games.</p>"
+    },
+        {
+            "id": 2,
+            "title": "Developer (2018)",
+            "link": "https://tictacboh.herokuapp.com/",
+            "label": "JS, ES6, SASS",
+            "screenshot": "img/projects/proj_tictactoe.png",
+            "alt": "Screenshot of Tic Tac Toe",
+            "description": "<p>Developed Developed the classic <b><a href='https://www.panix.com/~ianr/tictacboh/' target='_blank'>Tic Tac Toe</a></b> game with JavaScript, ES6, SASS, HTML, Node.js, Webpack.</p>"
+            },
+    {
+        "id": 3,
+        "title": "Developer and Product Manager (2017, 2013)",
+        "link": "http://calc.jessbodie.com",
+        "label": "JS, CSS",
+        "screenshot": "img/projects/proj_calc.png",
+        "alt": "Screenshot of Practical Retirement Calculator",
+        "description": "<ul><li>Ported the <b><a href='http://calc.jessbodie.com' target='_blank'>Practical Retirement Calculator</a></b> to JavaScript and HTML/CSS</li>  <li>Designed an easy-to-use retirement calculator app for Android mobile devices.  Developed the prototype and algorithm using Excel.</li></ul>"
+        },
+        {
+        "id": 4,
+        "title": "Developer (2017)",
+        "link": "/captions",
+        "label": "JS, SASS",
+        "screenshot": "img/projects/proj_captions.png",
+        "alt": "Screenshot of Captions Generator",
+        "description": "<p>Developed <b><a href='/captions' target='_blank'>Caption Generator</a></b> feature in JavaScript to show random captions and incorporate new captions input by user.</p>"
+        },
+    {
+        "id": 5,
+        "title": "Project Manager for <a href='http://www.happyfuncorp.com' target='_blank'>HappyFunCorp’s</a> Client <a href='http://twitter.com' target='_blank'>Twitter</a> (2016-17)",
+        "link": "",
+        "label": "PM",
+        "screenshot": "img/projects/proj_twitter_living_room.jpg",
+        "alt": "Image of Twitter app on a TV",
+        "description": "<ul>Lead engineering team through development for on-schedule and on-budget launch and follow up releases for TV apps: <li><b><a href='http://www.prnewswire.com/news-releases/twitter-introduces-apple-tv-amazon-fire-tv-and-xbox-one-apps-for-live-streaming-video-300327745.html' target='_blank'>Twitter for Apple TV</a></b></li><li><b><a href='https://www.amazon.com/Twitter-Inc-on-FireTV/dp/B01KN3K3C8/ref=sr_1_2?s=mobile-apps&ie=UTF8&qid=1480474104&sr=1-2' target='_blank'>Twitter on Fire TV</a></b></li><li><b><a href='https://play.google.com/store/apps/details?id=com.twitter.twittertv.androidtv&hl=en' target='_blank'>Twitter for Android TV</a></b></li> <li><b><a href='https://channelstore.roku.com/details/124910/twitter-for-rokuP' target='_blank'>Twitter for Roku</a></b></li> <p>Apple named Twitter for <a href='https://www.apple.com/newsroom/2016/12/apple-unveils-best-of-2016-across-apps-music-movies-and-more.html' target='_blank'>Apple TV App of the Year for 2016</a>.</p></ul>"
+        },
+    {
+        "id": 6,
+        "title": "Product Manager and Project Manager for <a href='http://www.happyfuncorp.com' target='_blank'>HappyFunCorp’s</a> client <a href='https://www.innovateedunyc.org' target='_blank'>InnovateEDU</a> (2015-16)",
+        "link": "",
+        "label": "PM",
+        "screenshot": "img/projects/proj_cortex_gradebook.png",
+        "alt": "Screenshot of Cortex Learning Management System",
+        "description": "<ul> <li>Lead engineering team to develop and release improvements and features for the <b><a href='https://www.innovateedunyc.org/cortex' target='_blank'>Cortex</a></b> online learning management system and student information system.</li> <li>Collaborate with client team to develop and prioritize updates.</li> </ul>"
+        },
+    {
+        "id": 7,
+        "title": "Project Manger for HappyFunCorp's Client Audible (2015-16)",
+        "link": "https://audiblerange.com",
+        "label": "PM",
+        "screenshot": "img/projects/proj_audible_home.png",
+        "alt": "Screenshot of Audible Range Blog",
+        "description": "<p>Lead engineering team through development of on-schedule and on-budget release of responsive, online marketing blog, <b><a href='https://audiblerange.com/' target='_blank'>Audible Range</a></b>.</p>"
+        },
+    {
+        "id": 8,
+        "title": "Product Manager and Project Manager for <a href='http://www.happyfuncorp.com' target='_blank'>HappyFunCorp’s</a> Client ParkSuite (2015)",
+        "link": "",
+        "label": "PM",
+        "screenshot": "img/projects/proj_ParkSuite2.png",
+        "alt": "Images of ParkSuite Mobile app",
+        "description": "<ul><li>Collaborate with client teams to define and develop new iOS app to facilitate social and fee-based parking exchanges.</li><li>Document business and UX requirements, prepare wireframes, define schedules.</li><li>Lead team to develop mockups and beta app.</li></ul>"
+        },
+    {
+        "id": 9,
+        "title": "Product Manager for <a href='http://www.happyfuncorp.com' target='_blank'>HappyFunCorp’s</a> Client Kaizenvest (2015)",
+        "link": "",
+        "label": "PM",
+        "screenshot": "img/projects/proj_kaizenvest.png",
+        "alt": "Screenshot of Kaizenvest Website",
+        "description": "<ul><li>Collaborate with client team to define and develop a new online automated investment banking website.</li><li>Prepare business requirements, user experience  requirements, user flows, information architecture, wireframes; manage design.</li></ul>"
+        },
+    {
+        "id": 10,
+        "title": "Product Manager and Project Manager for <a href='http://www.happyfuncorp.com' target='_blank'>HappyFunCorp's</a> Client <a href='https://www.rw-3.com' target='_blank'>RW-3</a> (2014-15)",
+        "link": "https://www.rw-3.com/request-a-culturewizard-teamplace-demo",
+        "label": "PM",
+        "screenshot": "img/projects/proj_teamplace.png",
+        "alt": "Screenshot of TeamPlace",
+        "description": "<ul><li>Collaborate with client teams to define and develop overhaul of the online training website, <b><a href='https://www.rw-3.com/request-a-culturewizard-teamplace-demo' target='_blank'>TeamPlace</a></b>.</li><li>Prepare UX requirements, user flows, and wireframes.</li><li>Lead teams through design, engineering, QA, and release.</li></ul>"
+        },
+    {
+        "id": 11,
+        "title": "Product Manager and Project Manager for New York Eye and Ear Infirmary of Mount Sinai (2013-14)",
+        "link": "http://www.nyee.edu",
+        "label": "PM",
+        "screenshot": "img/projects/proj_nyee.png",
+        "alt": "Screenshot of NYEE.edu",
+        "description": "<ul>  <li>Lead stakeholder, design, and engineering teams to redesign the hospital website (<b><a href='http://www.nyee.edu' target='_blank'>nyee.edu</a></b>) into template-based, responsive, CMS-driven site.</li>  <li>Prepared business requirements, functional requirements, information architecture documents and wireframes.</li>  </ul>"
+        }
+    ]
+

@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "../styles/variables" as vars;
+@use "../styles/mixins" as mix;
+
+.header {
+  position: fixed;
+  background-color: vars.$color-white;
+  width: 100vw;
+  height: vars.$nav-top-margin;
+  opacity: .99;
+  z-index: map.get(vars.$zindex, header);
+}
+
+.logoNav {
+  position: sticky;
+  width: 100%;
+  display: inline-block;
+  box-shadow: 0 .5rem .5rem -.5rem rgba(vars.$color-primary, .6);
+  height: vars.$nav-top-margin;
+}
+
+.logo {
+  line-height: 6rem;
+  position: absolute;
+  top: 0;
+  left: vars.$left-margin;
+  height: 6rem;
+  width: 6rem;
+  background-color: vars.$color-primary-dark;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  transition: all 300ms;
+  @include mix.dropshadow;
+
+  @include mix.respond(mobile) {
+    left: 0;
+  }
+
+  &:hover,
+  &:focus-within {
+    box-shadow: .25rem .25rem .5rem rgba(vars.$color-blacker, .6);
+    border-bottom: 2rem solid vars.$color-white;
+  }
+}
+
+.logoText {
+  display: inline-block;
+  color: vars.$color-white;
+  font-size: 2.2rem;
+  font-weight: 800;
+  padding: 0 .5rem;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms;
+  vertical-align: -.3rem;
+  height: 6rem;
+
+  &:link,
+  &:visited {
+    color: vars.$color-white;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.navLink {
+  line-height: 1;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: vars.$left-margin;
+  height: 4rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  position: relative;
+  transition: all 300ms;
+  background-color: transparent;
+
+  @include mix.respond(mobile) {
+    margin-right: vars.$gutter-sm;
+  }
+
+  &:hover,
+  &:focus-within {
+    background-image: linear-gradient(
+      to top left,
+      rgba(255, 255, 255, 1),
+      rgba(vars.$color-white, 1)
+    );
+    border-bottom: 2rem solid vars.$color-primary-dark;
+    box-shadow: .25rem .5rem .5rem rgba(vars.$color-primary-dark, .5);
+  }
+}
+
+.navLinkText {
+  color: vars.$color-secondary;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px vars.$color-white;
+  display: inline-block;
+
+  &:link,
+  &:visited {
+    color: vars.$color-secondary;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
