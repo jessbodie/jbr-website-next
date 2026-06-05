@@ -198,11 +198,11 @@ export default function ProjectsPage() {
       {/* Don't Poke Your Eye Out section */}
       <section className={styles.sectionObligatory}>
         <div className="obligatory__text-label u-margin-top-med" style={{ marginLeft: '4rem' }}>
-          <h2 className="heading-secondary">Don&apos;t Poke Your Eye Out</h2>
+          <h2 className="heading-secondary">Fun & Games</h2>
         </div>
 
         <div className="row u-margin-top-sm" style={{ marginLeft: '4rem' }}>
-          <p>Fun and games, developed with JavaScript, SASS, CSS.</p>
+          <p>Developed with JavaScript, SASS, CSS.</p>
         </div>
 
         {projectsData
