@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from './page.module.scss';
 
@@ -17,6 +17,7 @@ interface Project {
 export default function ProjectsList({ projects }: { projects: Project[] }) {
   const [featuredIndex, setFeaturedIndex] = useState<number | null>(null);
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const featuredRef = useRef<HTMLElement>(null);
 
   const featured = featuredIndex !== null ? projects[featuredIndex] : null;
   const hasPrev = featuredIndex !== null && featuredIndex > 0;
@@ -25,13 +26,19 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
   function handleCardClick(index: number) {
     setFeaturedIndex(index);
     setExpandedCard(expandedCard === index ? null : index);
+    // Only scroll on tablet+ where the featured panel is visible
+    if (window.innerWidth >= 600) {
+      setTimeout(() => {
+        featuredRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    }
   }
 
   return (
     <>
       {/* Featured panel — visible on tablet+ via CSS */}
       {featured && (
-        <section className={styles.sectionFeatured}>
+        <section ref={featuredRef} className={styles.sectionFeatured}>
           <div className="row">
             <div className={styles.listFeatured}>
               <div className={styles.listFeaturedContainer}>
