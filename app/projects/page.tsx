@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './page.module.scss';
 import ProjectsList from './ProjectsList';
 import projectsData from './data/projects_list.json';
@@ -189,12 +188,48 @@ export default function ProjectsPage() {
         </div>
 
         <div style={{ marginLeft: '4rem', marginTop: '3rem' }}>
-          <h2 className="heading-secondary">Other Projects</h2>
+          <h2 className="heading-secondary">Professional Highlights</h2>
         </div>
       </section>
 
-      {/* JSON-driven interactive project list */}
-      <ProjectsList projects={projectsData} />
+      {/* JSON-driven interactive project list — Professional Highlights */}
+      <ProjectsList projects={projectsData.filter(p => [-1, 5, 6, 7, 8, 9, 10, 11].includes(p.id))} />
+
+      {/* Don't Poke Your Eye Out section */}
+      <section className={styles.sectionObligatory}>
+        <div className="obligatory__text-label u-margin-top-med" style={{ marginLeft: '4rem' }}>
+          <h2 className="heading-secondary">Don&apos;t Poke Your Eye Out</h2>
+        </div>
+
+        <div className="row u-margin-top-sm" style={{ marginLeft: '4rem' }}>
+          <p>Fun and games, developed with JavaScript, SASS, CSS.</p>
+        </div>
+
+        {projectsData
+          .filter(p => [1, 0, 2, 3].includes(p.id))
+          .sort((a, b) => [1, 0, 2, 3].indexOf(a.id) - [1, 0, 2, 3].indexOf(b.id))
+          .map(project => (
+            <div className="row u-margin-top-sm" key={project.id}>
+              <div className={styles.obligatoryListing}>
+                <Image
+                  className={styles.obligatoryImageThumb}
+                  src={`/${project.screenshot}`}
+                  alt={project.alt}
+                  width={200}
+                  height={150}
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className={styles.obligatoryListingBlurb}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: `<div class="heading-tertiary">${project.title}</div>${project.description}`,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+      </section>
     </main>
   );
 }

@@ -43,7 +43,7 @@
         "label": "JS, CSS",
         "screenshot": "img/projects/proj_calc.png",
         "alt": "Screenshot of Practical Retirement Calculator",
-        "description": "<ul><li>Ported the <b><a href='https://retirement-calculator-qth5urqco-jessbodies-projects.vercel.app' target='_blank'>Practical Retirement Calculator</a></b> to JavaScript and HTML/CSS</li>  <li>Designed an easy-to-use retirement calculator app for Android mobile devices.  Developed the prototype and algorithm using Excel.</li></ul>"
+        "description": "<p>Ported the <b><a href='https://retirement-calculator-qth5urqco-jessbodies-projects.vercel.app' target='_blank'>Practical Retirement Calculator</a></b> to JavaScript and HTML/CSS. </p>  <p>Designed an easy-to-use retirement calculator app for Android mobile devices.  Developed the prototype and algorithm using Excel.</p>"
         },
     {
         "id": 5,
