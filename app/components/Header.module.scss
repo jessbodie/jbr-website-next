@@ -48,7 +48,7 @@
   display: inline-block;
   color: vars.$color-white;
   font-size: 2.2rem;
-  font-weight: 800;
+  // font-weight: 800;
   padding: 0 .5rem;
   width: 100%;
   text-align: center;
@@ -88,7 +88,6 @@
 .navLink {
   line-height: 1;
   font-size: 1.8rem;
-  font-weight: bold;
   margin-right: vars.$left-margin;
   height: 4rem;
   padding-left: .5rem;

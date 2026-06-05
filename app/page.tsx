@@ -39,7 +39,7 @@ export default function Home() {
           <div className={styles.purpose}>
             <figure className={styles.purposeImage}>
               <Image
-                src="/img/rain_garden_front1.jpg"
+                src="/img/rain_garden_front2.jpg"
                 alt="Alternative ground coverings in my front garden"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -47,7 +47,8 @@ export default function Home() {
             </figure>
             <div className={styles.purposeText}>
               <p>
-                This summer, I designed and built a rain garden and created a{' '}
+                In response to local flash flooding, I designed and built urban residential rain gardens to manage stormwater runoff. 
+                I also created a{' '}
                 <a
                   href="https://app.hex.tech/22816b08-0e6f-4dd8-8bc7-fda1c98d25d4/app/f0ab67e7-2431-42fe-a98c-4805f6071d74/latest"
                   target="_blank"
@@ -55,7 +56,7 @@ export default function Home() {
                 >
                   Rain Garden Calculator in Python
                 </a>
-                {' '}to help others plan a rain garden.
+                {' '}to help others do the same. 
               </p>
               <p>
                 <br />

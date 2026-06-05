@@ -81,7 +81,7 @@ li {
   display: inline-block;
   font-size: 3rem;
   line-height: 5.6rem;
-  font-weight: 800;
+  font-weight: 600;
   color: vars.$color-white;
   vertical-align: bottom;
 
@@ -99,7 +99,7 @@ li {
 .heading-secondary {
   display: inline-block;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   color: vars.$color-white;
   background-color: vars.$color-primary;
   padding: .5rem 1.5rem 1rem 1.5rem;
@@ -110,7 +110,7 @@ li {
   display: inline-block;
   position: relative;
   font-size: vars.$h3-default;
-  font-weight: 800;
+  font-weight: 500;
   color: vars.$color-primary;
   background-color: transparent;
   padding: .5rem 0;
@@ -153,8 +153,17 @@ img {
   }
 }
 
+// Shared text styles
+.obligatory__text-single {
+  color: vars.$color-primary-dark;
+  font-size: vars.$body-default;
+  line-height: normal;
+  word-spacing: .35rem;
+  margin-bottom: 1.4rem;
+}
+
 // Utilities
-.u-margin-bottom-med { margin-bottom: 5rem; }
+.u-margin-bottom-med { margin-bottom: 4rem; }
 
 .u-margin-top-med {
   margin-top: 3rem;

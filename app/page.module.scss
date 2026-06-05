@@ -9,12 +9,12 @@
   max-height: 80vmin;
   background-color: vars.$color-primary;
   background-image:
-    linear-gradient(
-      to right bottom,
-      rgba(vars.$color-primary, 0.2),
-      rgba(vars.$color-primary-dark, .7)
-    ),
-    url('/img/a_tree_grows_in.jpg');
+    // linear-gradient(
+    //   to right bottom,
+    //   rgba(vars.$color-primary, 0.2),
+    //   rgba(vars.$color-primary-dark, .7)
+    // ),
+    url('/img/rain_garden_front1.jpg');
   background-size: cover;
   background-position: left 90%;
   background-attachment: fixed;
