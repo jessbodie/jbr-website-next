@@ -81,7 +81,7 @@ export default function AboutPage() {
 
       {/* Many Hats — drag and drop */}
       <section className={styles.sectionDnD}>
-        <div className="row">
+        <div className="row u-margin-bottom-med" >
           <DragAndDrop />
         </div>
       </section>
