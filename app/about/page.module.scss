@@ -158,9 +158,11 @@
 }
 
 .captionsRehash {
-  position: absolute;
-  top: 0;
-  right: 0;
+  // // position: absolute;
+  // top: 0;
+  // right: 0;
+  font-size: 1em;
+  margin: 0.5em 0;
 }
 
 // ─── Drag and Drop ──────────────────────────────────────────────────────────
@@ -282,7 +284,6 @@
     display: block;
     line-height: 1;
     font-size: 1rem;
-    font-weight: bold;
     @include mix.dropshadow;
   }
 }
