@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 import CaptionGenerator from './CaptionGenerator';
 import DragAndDrop from './DragAndDrop';
-import SprigScript from '../components/SprigScript';
 
 export const metadata = {
   title: 'Jess Bodie Richards - About',
@@ -86,9 +85,6 @@ export default function AboutPage() {
           <DragAndDrop />
         </div>
       </section>
-
-      {/* Test Sprig Survey */}
-      <SprigScript eventName="viewed_about_page" />
 
     </main>
   );

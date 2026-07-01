@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 import ProjectsList from './ProjectsList';
 import projectsData from './data/projects_list.json';
-import SprigScript from '../components/SprigScript';
 
 export const metadata = {
   title: 'Jess Bodie Richards - Projects',
@@ -231,8 +230,7 @@ export default function ProjectsPage() {
             </div>
           ))}
       </section>
-      {/* Test Sprig Survey */}
-      <SprigScript eventName="viewed_projects_page" />
+
     </main>
   );
 }
