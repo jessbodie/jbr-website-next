@@ -1,4 +1,5 @@
 import styles from './page.module.scss';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Sandbox',
@@ -15,6 +16,9 @@ export default function SandboxPage() {
             Transactions are simulations only. No financial charges will be processed.
           </p>
         </div>
+
+        <apple-pay-button buttonstyle="black" type="buy" locale="el-GR" className={styles.applePayButton}></apple-pay-button>
+        <Script src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js" strategy="afterInteractive"/>
       </section>
     </main>
   );
