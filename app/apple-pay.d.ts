@@ -15,4 +15,10 @@ declare module 'react' {
   }
 }
 
+declare global {
+  interface Window {
+    ApplePaySession?: typeof ApplePaySession;
+  }
+}
+
 export {};

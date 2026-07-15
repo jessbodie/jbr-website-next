@@ -1,5 +1,6 @@
 import styles from './page.module.scss';
 import Script from 'next/script';
+import ApplePayButton from './ApplePayButton';
 
 export const metadata = {
   title: 'Sandbox',
@@ -17,8 +18,8 @@ export default function SandboxPage() {
           </p>
         </div>
 
-        <apple-pay-button buttonstyle="black" type="tip" className={styles.applePayButton}></apple-pay-button>
         <Script src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js" strategy="afterInteractive"/>
+        <ApplePayButton />
       </section>
     </main>
   );
