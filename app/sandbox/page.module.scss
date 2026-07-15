@@ -1,0 +1,21 @@
+@use "../styles/variables" as vars;
+@use "../styles/mixins" as mix;
+
+.sectionSandbox {
+  background-color: vars.$color-white-true;
+  color: vars.$color-black;
+  padding-top: 4rem;
+  padding-bottom: vars.$left-margin;
+  min-height: 60vh;
+  @include mix.section-block;
+}
+
+.intro {
+  margin-left: vars.$left-margin;
+  margin-right: vars.$left-margin;
+  max-width: 40rem;
+}
+
+.notice {
+  margin-top: 1rem;
+}
