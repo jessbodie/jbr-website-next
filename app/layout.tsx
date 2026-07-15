@@ -3,6 +3,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Script from 'next/script';
+
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -26,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body>
+        <Script src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js" strategy="beforeInteractive"/>
         <Header />
         {children}
         <Footer />
