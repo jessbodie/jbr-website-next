@@ -17,7 +17,7 @@ export default function SandboxPage() {
           </p>
         </div>
 
-        <apple-pay-button buttonstyle="black" type="buy" locale="el-GR" className={styles.applePayButton}></apple-pay-button>
+        <apple-pay-button buttonstyle="black" type="tip" className={styles.applePayButton}></apple-pay-button>
         <Script src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js" strategy="afterInteractive"/>
       </section>
     </main>
