@@ -3,6 +3,50 @@
 import { useEffect, useState } from 'react';
 import styles from './page.module.scss';
 
+async function onApplePayButtonClicked() {
+    const paymentRequest: ApplePayJS.ApplePayPaymentRequest ={
+        countryCode: 'US',
+        currencyCode: 'USD',
+        supportedNetworks: ['visa', 'masterCard', 'amex'],
+        merchantCapabilities: ['supports3DS'],
+        total: {
+            label: 'Jess Bodie Richards (Sandbox)',
+            amount: '1.23',  
+        },   
+    };
+
+    const session = new ApplePaySession(3, paymentRequest);
+
+    session.onvalidatemerchant = async (event) => {
+        try {
+            const response = await fetch('/api/apple-pay/validate-merchant', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({validationURL: event.validationURL})
+            });
+
+            if (!response.ok) {
+                throw new Error(`Merchant validation failed: ${response.status}`);
+            }
+
+            const merchantSession = await response.json();
+            session.completeMerchantValidation(merchantSession);
+
+        } catch (err) {
+            console.log(err);
+            session.abort();
+        }
+    }
+
+    session.onpaymentauthorized = () => {
+        // TODO, after adding PSP processing
+        session.completePayment(ApplePaySession.STATUS_SUCCESS);
+    };
+
+    session.begin();
+}
+
+
 export default function ProcessApplePay() {
 
     const [canPay, setCanPay] = useState(false);
@@ -38,7 +82,11 @@ export default function ProcessApplePay() {
     }, []);
 
     if (canPay) {
-       return (<apple-pay-button buttonstyle="black" type="tip" className={styles.applePayButton}></apple-pay-button>)
+       return (<apple-pay-button 
+            buttonstyle="black" 
+            type="tip" 
+            className={styles.applePayButton} 
+            onClick={onApplePayButtonClicked}></apple-pay-button>)
         }
     else {
         return null
