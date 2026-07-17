@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.scss';
 
 async function onApplePayButtonClicked() {
+    console.log('button clicked');
     const paymentRequest: ApplePayJS.ApplePayPaymentRequest ={
         countryCode: 'US',
         currencyCode: 'USD',
@@ -19,6 +20,7 @@ async function onApplePayButtonClicked() {
 
     session.onvalidatemerchant = async (event) => {
         try {
+            console.log('inside onvalidatemerchant');
             const response = await fetch('/api/apple-pay/validate-merchant', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
