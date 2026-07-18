@@ -15,12 +15,13 @@ async function onApplePayButtonClicked() {
             amount: '1.23',  
         },   
     };
+    console.log(paymentRequest);
 
     const session = new ApplePaySession(3, paymentRequest);
 
     session.onvalidatemerchant = async (event) => {
+        console.log(event.validationURL);
         try {
-            console.log('inside onvalidatemerchant');
             const response = await fetch('/api/apple-pay/validate-merchant', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -33,15 +34,15 @@ async function onApplePayButtonClicked() {
 
             const merchantSession = await response.json();
             session.completeMerchantValidation(merchantSession);
-
+            console.log(merchantSession);
         } catch (err) {
             console.log(err);
             session.abort();
         }
     }
 
-    session.onpaymentauthorized = () => {
-        // TODO, after adding PSP processing
+    session.onpaymentauthorized = (event) => {
+        console.log(event.payment);        
         session.completePayment(ApplePaySession.STATUS_SUCCESS);
     };
 
@@ -57,17 +58,16 @@ export default function ProcessApplePay() {
     useEffect(() => {        
         // Check if the Apple Pay JS API is available.
         if (window.ApplePaySession) {
-            console.log('ApplePaySession')
             const merchantIdentifier = 'merchant.com.jessbodie.applepay';
             const promise = ApplePaySession.applePayCapabilities(merchantIdentifier);
 
             promise.then(function(capabilities) {
+            console.log(capabilities);
             // Check if the person has an active payment credential provisioned in Wallet.
             switch (capabilities.paymentCredentialStatus) {
                 case "paymentCredentialsAvailable":
                     // Display an Apple Pay button and offer Apple Pay as the primary payment option. 
                     setCanPay(true);
-                    console.log('paymentCredentialsAvailable')
                     break;
                 case "paymentCredentialStatusUnknown":
                     // Display an Apple Pay button and offer Apple Pay as a payment option.
