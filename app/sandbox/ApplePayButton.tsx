@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './page.module.scss';
 
 async function onApplePayButtonClicked() {
@@ -52,11 +52,12 @@ async function onApplePayButtonClicked() {
 export default function ProcessApplePay() {
 
     const [canPay, setCanPay] = useState(false);
+    const buttonRef = useRef<HTMLElement>(null);
 
     useEffect(() => {        
         // Check if the Apple Pay JS API is available.
         if (window.ApplePaySession) {
-            
+            console.log('ApplePaySession')
             const merchantIdentifier = 'merchant.com.jessbodie.applepay';
             const promise = ApplePaySession.applePayCapabilities(merchantIdentifier);
 
@@ -66,6 +67,7 @@ export default function ProcessApplePay() {
                 case "paymentCredentialsAvailable":
                     // Display an Apple Pay button and offer Apple Pay as the primary payment option. 
                     setCanPay(true);
+                    console.log('paymentCredentialsAvailable')
                     break;
                 case "paymentCredentialStatusUnknown":
                     // Display an Apple Pay button and offer Apple Pay as a payment option.
@@ -83,12 +85,20 @@ export default function ProcessApplePay() {
         }
     }, []);
 
+    useEffect(() => {
+        const button = buttonRef.current;
+        if (canPay && button) {
+            button.addEventListener('click', onApplePayButtonClicked);
+            return () => button.removeEventListener('click', onApplePayButtonClicked);
+        }
+    }, [canPay]);
+
     if (canPay) {
        return (<apple-pay-button 
+            ref={buttonRef}
             buttonstyle="black" 
             type="tip" 
-            className={styles.applePayButton} 
-            onClick={onApplePayButtonClicked}></apple-pay-button>)
+            className={styles.applePayButton}></apple-pay-button>)
         }
     else {
         return null
