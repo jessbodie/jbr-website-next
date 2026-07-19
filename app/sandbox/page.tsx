@@ -16,11 +16,13 @@ export default function SandboxPage() {
           <p className={styles.notice}>
             Transactions are simulations only. No financial charges will be processed.
           </p>
-        </div>
 
+        <h3 className={styles.subhead}>Apple Pay</h3>
         <ApplePayButton />
 
         <StripeApplePay />
+
+        </div>
 
       </section>
     </main>
