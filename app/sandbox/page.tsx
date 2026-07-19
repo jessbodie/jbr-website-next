@@ -17,7 +17,6 @@ export default function SandboxPage() {
             Transactions are simulations only. No financial charges will be processed.
           </p>
 
-        <h3 className={styles.subhead}>Apple Pay</h3>
         <ApplePayButton />
 
         <StripeApplePay />

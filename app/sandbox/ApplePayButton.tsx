@@ -94,12 +94,18 @@ export default function ProcessApplePay() {
     }, [canPay]);
 
     if (canPay) {
-       return (<apple-pay-button 
+       return (
+        <>
+        <h3 className={styles.subhead}>Apple Pay (Direct)</h3>
+        <p className={`${styles.descrip}`}>
+        This button integrates Apple Pay directly, without a payment processor in between. This page owns the full merchant identity including my Merchant ID and certificate. The server performs merchant validation itself and the encrypted payment token is returned straight to this app, where a real integration would decrypt it server-side using the payment processing certificate. </p>
+        <apple-pay-button 
             ref={buttonRef}
             buttonstyle="black" 
             type="tip" 
-            className={styles.applePayButton}></apple-pay-button>)
-        }
+            className={styles.applePayButton}></apple-pay-button>
+        </>
+        )}
     else {
         return null
     }
