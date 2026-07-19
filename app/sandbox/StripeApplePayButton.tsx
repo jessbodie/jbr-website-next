@@ -25,43 +25,45 @@ function CheckoutButton() {
         encrypted payload. This is representative of how Stripe with Apple Pay integrations are built.</p>
             </>
         )}
-        <ExpressCheckoutElement
-            onReady={(event) => {
-                console.log('Stripe ECE ready. Available methods:', event.availablePaymentMethods);
-            }}
-            onLoadError={(event) => {
-                console.log('ECE Stripe load error:', event);
-            }}
-            onAvailablePaymentMethodsChange={({ paymentMethods }) => {
-                console.log('available payment methods:', paymentMethods);
-                if (paymentMethods) setReady(true);
-            }}
-            onConfirm={ async () => {
-                if (!stripe || !elements) return;
+        <div className={styles.stripeButtonWrap}>
+            <ExpressCheckoutElement
+                onReady={(event) => {
+                    console.log('Stripe ECE ready. Available methods:', event.availablePaymentMethods);
+                }}
+                onLoadError={(event) => {
+                    console.log('ECE Stripe load error:', event);
+                }}
+                onAvailablePaymentMethodsChange={({ paymentMethods }) => {
+                    console.log('available payment methods:', paymentMethods);
+                    if (paymentMethods) setReady(true);
+                }}
+                onConfirm={ async () => {
+                    if (!stripe || !elements) return;
 
-                const { error: submitError } = await elements.submit();
-                if (submitError) {
-                    console.log('submit error:', submitError);
-                    return;
-                }
-                
-            const res = await fetch('/api/create-payment-intent', { method: 'POST' });
-            const { clientSecret } = await res.json();
+                    const { error: submitError } = await elements.submit();
+                    if (submitError) {
+                        console.log('submit error:', submitError);
+                        return;
+                    }
+                    
+                const res = await fetch('/api/create-payment-intent', { method: 'POST' });
+                const { clientSecret } = await res.json();
 
-            const { error } = await stripe.confirmPayment({
-                elements,
-                clientSecret,
-                confirmParams: { return_url: 'https://www.jessbodie.com/sandbox'},
-                redirect: 'if_required'
-            });
+                const { error } = await stripe.confirmPayment({
+                    elements,
+                    clientSecret,
+                    confirmParams: { return_url: 'https://www.jessbodie.com/sandbox'},
+                    redirect: 'if_required'
+                });
 
-            if (error) {
-                console.log('confirm error:', error);
-            } else {
-                console.log('payment succeeded');
-                }
-            }} 
-        />
+                if (error) {
+                    console.log('confirm error:', error);
+                } else {
+                    console.log('payment succeeded');
+                    }
+                }} 
+            />
+        </div>
     </>
     );
 }
