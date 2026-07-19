@@ -47,16 +47,7 @@ export default function Home() {
             </figure>
             <div className={styles.purposeText}>
               <p>
-                In response to local flash flooding, I designed and built urban residential rain gardens to manage stormwater runoff. 
-                I also created a{' '}
-                <a
-                  href="https://app.hex.tech/22816b08-0e6f-4dd8-8bc7-fda1c98d25d4/app/f0ab67e7-2431-42fe-a98c-4805f6071d74/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rain Garden Calculator in Python
-                </a>
-                {' '}to help others do the same. 
+                  In response to local flash flooding, I designed and built urban residential rain gardens to manage stormwater runoff. I turned that hands-on process into the <a href="/raingarden">Rain Garden Advisor</a> — a live tool that uses an AI chat to turn a U.S. address into a custom rain garden plan (size, depth, native plants), no landscaping experience required.
               </p>
               <p>
                 <br />
