@@ -21,16 +21,14 @@ function CheckoutButton() {
           encrypted payload. This is representative of how Stripe with Apple Pay integrations are built.</p>
         )}
         <ExpressCheckoutElement
-            options={{
-                paymentMethods: {
-                    applePay: 'auto',
-                    googlePay: 'auto',
-                    link: 'never',
-                    paypal: 'auto',
-                    amazonPay: 'never',
-    },
-  }}
+            onReady={(event) => {
+                console.log('Stripe ECE ready. Available methods:', event.availablePaymentMethods);
+            }}
+            onLoadError={(event) => {
+                console.log('ECE Stripe load error:', event);
+            }}
             onAvailablePaymentMethodsChange={({ paymentMethods }) => {
+                console.log('available payment methods:', paymentMethods);
                 if (paymentMethods) setReady(true);
             }}
             onConfirm={() => {}} // TODO STEP 6
