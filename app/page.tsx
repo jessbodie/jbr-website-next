@@ -47,7 +47,7 @@ export default function Home() {
             </figure>
             <div className={styles.purposeText}>
               <p>
-                  In response to local flash flooding, I designed and built urban residential rain gardens to manage stormwater runoff. I turned that hands-on process into the <a href="/raingarden">Rain Garden Advisor</a> — a live tool that uses an AI chat to turn a U.S. address into a custom rain garden plan (size, depth, native plants), no landscaping experience required.
+                  In response to local flash flooding, I designed and built urban residential rain gardens to manage stormwater runoff. I turned that hands-on process into the <a href="/raingarden">Rain Garden Advisor</a> — a tool that uses an AI chat to turn an address into a custom rain garden plan: size, depth,  plants, and more.
               </p>
               <p>
                 <br />
