@@ -43,3 +43,147 @@
   font-weight: bold;
   margin-top: 4rem;
 }
+
+// ---- Debug panel ----------------------------------------------------------
+
+$debug-success: #2e7d5b;
+
+.debugRoot {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(vars.$color-primary, 0.35);
+}
+
+.debugControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.debugCheckbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  input {
+    accent-color: vars.$color-secondary;
+    width: 0.9rem;
+    height: 0.9rem;
+    cursor: pointer;
+  }
+
+  span:nth-of-type(1) {
+    font-weight: bold;
+  }
+}
+
+.debugHint {
+  color: rgba(vars.$color-black, 0.55);
+  font-size: 0.72rem;
+}
+
+.debugClear {
+  background: none;
+  color: vars.$color-secondary;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+    text-decoration: none;
+  }
+}
+
+.debugPanel {
+  margin-top: 1rem;
+  max-height: 30rem;
+  overflow-y: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+// Override the global `p` rule (font-size: $body-default; margin-top: .8rem).
+.debugEmpty {
+  margin: 0;
+  font-size: 0.72rem;
+  color: rgba(vars.$color-black, 0.55);
+}
+
+// Override the global `ul` rule (font-size: $body-default; margin-top: .8rem).
+.debugList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+// Override the global `li` rule (margin-left: $left-margin; margin-top: .6rem)
+// so entries sit flush-left with no indent and no row separators.
+.debugEntry {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.debugTime {
+  color: rgba(vars.$color-black, 0.5);
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.debugTag {
+  color: vars.$color-primary;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.debugMessage {
+  color: vars.$color-black;
+  word-break: break-word;
+}
+
+.debugDetail {
+  grid-column: 1 / -1;
+
+  summary {
+    cursor: pointer;
+    color: vars.$color-secondary;
+    font-size: 0.68rem;
+  }
+
+  pre {
+    margin: 0.3rem 0 0;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+.level_success .debugMessage {
+  color: $debug-success;
+}
+
+.level_error .debugMessage {
+  color: vars.$color-tertiary;
+}
