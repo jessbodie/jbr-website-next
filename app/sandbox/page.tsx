@@ -1,6 +1,7 @@
 import styles from './page.module.scss';
 import ApplePayButton from './ApplePayButton';
 import StripeApplePay from './StripeApplePayButton';
+import DebugPanel from './DebugPanel';
 
 export const metadata = {
   title: 'Sandbox',
@@ -20,6 +21,8 @@ export default function SandboxPage() {
         <ApplePayButton />
 
         <StripeApplePay />
+
+        <DebugPanel />
 
         </div>
 
