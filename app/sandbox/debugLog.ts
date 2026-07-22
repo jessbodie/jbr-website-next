@@ -9,9 +9,9 @@ export type Level = 'info' | 'success' | 'error';
 export type Integration = 'direct' | 'stripe' | 'decrypt';
 
 export const INTEGRATION_LABELS: Record<Integration, string> = {
-  direct: 'Apple Pay (Direct)',
+  direct: 'Direct (Token Only)',
   stripe: 'Stripe',
-  decrypt: 'Self-Decrypt',
+  decrypt: 'Direct (Self-Decrypt)',
 };
 
 export interface DebugEntry {
