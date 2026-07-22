@@ -1,5 +1,6 @@
 import styles from './page.module.scss';
 import ApplePayButton from './ApplePayButton';
+import ApplePayDecryptButton from './ApplePayDecryptButton';
 import StripeApplePay from './StripeApplePayButton';
 import DebugPanel from './DebugPanel';
 
@@ -15,13 +16,15 @@ export default function SandboxPage() {
           <h1 className="heading-primary">Sandbox</h1>
           <h2 className="heading-tertiary">Apple Pay Web - Integration Sandbox</h2>
           <p>
-            Payments infrastructure was part of my work at Zip (a BNPL company). This sandbox extends that experience into Apple Pay on the web, comparing two integration models: owning merchant identity and decryption directly, versus delegating both to a payment service provider (Stripe).
+            Payments infrastructure was part of my work at Zip (a BNPL company). This sandbox extends that into Apple Pay on the web across three approaches, from self-owned to delegated: returning the encrypted token, decrypting it myself with my own payment processing certificate, and handing both merchant identity and decryption to a provider (Stripe).
           </p>
           <p className={styles.notice}>
             Transactions are simulations only. No financial charges will be processed.
           </p>
 
         <ApplePayButton />
+
+        <ApplePayDecryptButton />
 
         <StripeApplePay />
 
