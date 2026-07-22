@@ -26,6 +26,9 @@
 # misc
 .DS_Store
 *.pem
+TODO.md
+test_cert.sh
+tests/fixtures/sample_token.json
 
 # debug
 npm-debug.log*
@@ -42,7 +45,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# miscellaneous
-TODO.md
-test_cert.sh
