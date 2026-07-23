@@ -12,10 +12,10 @@ export default function SandboxPage() {
   return (
     <main>
       <section className={styles.sectionSandbox}>
-        <div className={styles.intro}>
+        <div>
           <h1 className="heading-primary">Sandbox</h1>
           <h2 className="heading-tertiary">Apple Pay on the Web <br/> Integration Sandbox</h2>
-          <p className={styles.descrip}>
+          <p className={styles.intro}>
            Payments infrastructure was part of my work at Zip (a BNPL company). This sandbox extends that into three approaches to Apple Pay on the web, from fully self-owned to fully delegated.
           </p>
           <p className={styles.disclaimer}>

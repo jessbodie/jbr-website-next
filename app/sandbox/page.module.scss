@@ -8,16 +8,17 @@
   padding-bottom: vars.$left-margin;
   min-height: 60vh;
   @include mix.section-block;
+  margin-left: vars.$left-margin;
+  margin-right: vars.$left-margin;
+  max-width: 40rem;
 }
 
-.intro :global(.heading-primary) {
+.sectionSandbox :global(.heading-primary) {
   display: block;
 }
 
 .intro {
-  margin-left: vars.$left-margin;
-  margin-right: vars.$left-margin;
-  max-width: 40rem;
+  font-size: 1.4rem;
 }
 
 .applePayButton {
@@ -34,18 +35,18 @@
 }
 
 .descrip {
-  font-size: medium;
+  font-size: vars.$body-default;
   margin-top: 1rem;
 }
 
 .subhead {
-  font-size: large;
+  font-size: vars.$body-default;
   font-weight: bold;
   margin-top: 4rem;
 }
 
 .disclaimer {
-  font-size: large;
+  font-size: vars.$body-default;
   font-weight: bold;
   margin-top: 1rem;
 }
