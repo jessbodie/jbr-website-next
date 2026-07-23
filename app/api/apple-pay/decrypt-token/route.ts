@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from 'node:crypto';
+import { verifyTokenSignature } from './verifySignature';
 
 export const runtime = 'nodejs';
 
@@ -71,7 +72,15 @@ export async function POST(request: NextRequest) {
     };
     if (parsed.version !== 'EC_v1') {
         return NextResponse.json({ error: `Unsupported version ${parsed.version}` }, {status: 400})
-    } 
+    }
+
+    // Verify the token signature BEFORE decrypting per Apple's: "if the
+    // signature is invalid, ignore the transaction."
+    const verification = await verifyTokenSignature(paymentData);
+    if (!verification.valid) {
+        console.log('Signature verification failed:', verification.reason);
+        return NextResponse.json({ error: 'Invalid token signature' }, { status: 400 });
+    }
 
     let payment;
     try {
@@ -81,5 +90,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Decryption failed'}, {status: 500});
     }
     console.log('DECRYPTED (**Sandbox demo only**):', payment);
-    return NextResponse.json({ ok: true }); //TODO, ADD DEBUG PANEL
+    return NextResponse.json({ 
+        paymentDataType: payment.paymentDataType,
+        currencyCode: payment.currencyCode,
+        transactionAmount: payment.transactionAmount,
+        applicationExpirationDate: payment.applicationExpirationDate,
+        dpanLast4: payment.applicationPrimaryAccountNumber.slice(-4)
+     }); 
 }

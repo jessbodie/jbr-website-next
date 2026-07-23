@@ -10,6 +10,10 @@
   @include mix.section-block;
 }
 
+.intro :global(.heading-primary) {
+  display: block;
+}
+
 .intro {
   margin-left: vars.$left-margin;
   margin-right: vars.$left-margin;
@@ -38,6 +42,12 @@
   font-size: large;
   font-weight: bold;
   margin-top: 4rem;
+}
+
+.disclaimer {
+  font-size: large;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 // ---- Debug panel ----------------------------------------------------------
