@@ -90,5 +90,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Decryption failed'}, {status: 500});
     }
     console.log('DECRYPTED (**Sandbox demo only**):', payment);
-    return NextResponse.json({ ok: true }); //TODO, ADD DEBUG PANEL
+    return NextResponse.json({ 
+        paymentDataType: payment.paymentDataType,
+        currencyCode: payment.currencyCode,
+        transactionAmount: payment.transactionAmount,
+        applicationExpirationDate: payment.applicationExpirationDate,
+        dpanLast4: payment.applicationPrimaryAccountNumber.slice(-4)
+     }); 
 }
