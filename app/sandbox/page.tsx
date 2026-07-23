@@ -14,12 +14,13 @@ export default function SandboxPage() {
       <section className={styles.sectionSandbox}>
         <div className={styles.intro}>
           <h1 className="heading-primary">Sandbox</h1>
-          <h2 className="heading-tertiary">Apple Pay on the Web - Integration Sandbox</h2>
-          <p>
-           Payments infrastructure was part of my work at Zip (a BNPL company). This sandbox extends that into Apple Pay on the web across three approaches, from self-owned to delegated: returning the encrypted token, decrypting it myself with my own payment processing certificate, and handing both merchant identity and decryption to a provider (Stripe).
-          </p>
+          <h2 className="heading-tertiary">Apple Pay on the Web <br/> Integration Sandbox</h2>
           <p className={styles.descrip}>
-            Transactions are simulations only. No financial charges will be processed.
+           Payments infrastructure was part of my work at Zip (a BNPL company). This sandbox extends that into three approaches to Apple Pay on the web, from fully self-owned to fully delegated.
+          </p>
+          <p className={styles.disclaimer}>
+            Transactions are simulations only. <br/>
+            No financial charges will be processed.
           </p>
 
         <ApplePayButton />
