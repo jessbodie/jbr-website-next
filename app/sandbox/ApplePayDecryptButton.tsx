@@ -127,7 +127,7 @@ export default function ProcessApplePayDecrypt() {
         <>
         <h3 className={styles.subhead}>Apple Pay Direct (Self-Decrypt)</h3>
         <p className={`${styles.descrip}`}>
-        This button picks up where Apple Pay (Direct) leaves off. It uses the same direct integration — my own Merchant ID, certificate, and server-side merchant validation, with no payment processor in between — but instead of discarding the encrypted payment token, the server decrypts it itself using the Payment Processing Certificate. This is the work a processor like Stripe does out of sight: unwrapping Apple's encrypted token to the underlying card and transaction data. It runs in the sandbox only — the decrypted result is logged server-side and nothing is ever charged.
+        This button picks up where Apple Pay Direct (Token Only) leaves off. It uses the same direct integration — my own Merchant ID, certificate, and server-side merchant validation, with no payment processor in between — but instead of discarding the encrypted payment token, the server decrypts it itself using the Payment Processing Certificate. This is the work a processor like Stripe does out of sight: unwrapping Apple's encrypted token into the underlying device account number and transaction data. The decrypted result is logged server-side and nothing is ever charged.
         </p>
         <apple-pay-button 
             ref={buttonRef}
