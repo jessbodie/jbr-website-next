@@ -28,7 +28,7 @@
 *.pem
 TODO.md
 test_cert.sh
-tests/fixtures/sample_token.json
+tests/fixtures/sample_token*.json
 
 # debug
 npm-debug.log*
