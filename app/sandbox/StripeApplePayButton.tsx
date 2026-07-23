@@ -20,10 +20,8 @@ function CheckoutButton() {
             <>
             <h3 className={styles.subhead}>Apple Pay with Stripe</h3>
             <p className={`${styles.descrip}`}>
-                Unlike the Apple Pay button above, this one lets Stripe own the full merchant
-        identity — their own Merchant ID, certificate, and merchant validation. Stripe
-        decrypts the payment token internally; this page and its server never see the raw
-        encrypted payload. This is representative of how Stripe with Apple Pay integrations are built.</p>
+                Unlike the two direct integrations above, this one lets Stripe own the full merchant identity — their own Merchant ID, certificate, and merchant validation. Stripe decrypts the payment token internally; this page and its server never see the raw encrypted payload. This is representative of how Stripe with Apple Pay integrations are built.
+            </p>
             </>
         )}
         <div className={styles.stripeButtonWrap}>

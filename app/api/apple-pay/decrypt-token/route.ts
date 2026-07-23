@@ -22,15 +22,14 @@ function decryptToken(
     // EC_v1 symmetric-key derivation + AES-GCM decryption.
     //
     // Attribution: I implemented the rest of this Apple Pay integration hands-on,
-    // but this cryptographic section was written with substantial help from Claude
-    // Code rather than from my own prior knowledge. I follow it conceptually
-    // (ECDH shared secret → key-derivation function → authenticated decrypt), but
-    // I understand it less deeply than the other code in this integration.
+    // but this cryptographic section 
+    // (ECDH shared secret → key-derivation function → authenticated decrypt) 
+    // was written with substantial help from Claude Code. 
     //
     // Sources: Apple "Restoring the Symmetric Key" and "Payment Token Format
     // Reference"; NIST SP 800-56A §5.8.1 (Concat KDF). The exact byte framing
     // (0x0D length prefix, "id-aes256-GCM", 4-byte counter) follows common EC_v1
-    // reference implementations, as Apple's docs don't spell it out.
+    // reference implementations.
     // ---------------------------------------------------------------------------
     const counter = Buffer.from([0x00, 0x00, 0x00, 0x01]);
     const algorithmId = Buffer.concat([
